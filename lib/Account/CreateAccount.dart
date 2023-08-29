@@ -31,7 +31,7 @@ class _CreateAccountState extends State<CreateAccount> {
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-        isImagePicked = true; // Set the flag to indicate an image is picked
+        isImagePicked = true; 
       });
     }
   }
@@ -52,7 +52,7 @@ class _CreateAccountState extends State<CreateAccount> {
       String downloadURL = await ref.getDownloadURL();
       print("Image uploaded. Download URL: $downloadURL");
 
-      // Update the user's document in Firestore with the profile image URL
+      
       await _firestore.collection('users').doc(_auth.currentUser!.uid).update({
         "profileImageUrl": downloadURL,
       });
@@ -70,11 +70,11 @@ class _CreateAccountState extends State<CreateAccount> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/create-ac.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                'assets/create-ac.png'), 
             fit: BoxFit.contain,
             colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.40), // แก้สีและความทึบตามต้องการ
-              BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+              Colors.white.withOpacity(0.40), 
+              BlendMode.dstATop, 
             ),
           ),
         ),
@@ -141,7 +141,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             _image != null ? FileImage(_image!) : null,
                         backgroundColor: _image == null
                             ? Colors.purple.shade400
-                            : null, // Set background color for no image
+                            : null, // 
                         radius: 50,
                         child: _image == null
                             ? Icon(Icons.person, size: 60)
@@ -170,7 +170,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         padding: EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
                           controller: _name,
-                          // ให้แสดงเป็น *** สำหรับรหัสผ่าน
+                          
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.person),
                             hintText: "Name...",
@@ -178,14 +178,14 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            filled: true, // ใส่สีพื้นหลัง
-                            fillColor: Colors.purple.shade400, // สีพื้นหลัง
+                            filled: true, 
+                            fillColor: Colors.purple.shade400, 
                           ),
                           style: TextStyle(
-                            color: Colors.white, // เปลี่ยนสีตัวอักษร
+                            color: Colors.white, 
                             fontFamily:
-                                'YourFontFamily', // เปลี่ยนแบบอักษร (font family)
-                            fontSize: 16, // เปลี่ยนขนาดตัวอักษร
+                                'YourFontFamily',
+                            fontSize: 16, 
                           ),
                         ),
                       ),
@@ -203,14 +203,14 @@ class _CreateAccountState extends State<CreateAccount> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          filled: true, // ใส่สีพื้นหลัง
-                          fillColor: Colors.purple.shade400, // สีพื้นหลัง
+                          filled: true, 
+                          fillColor: Colors.purple.shade400, 
                         ),
                         style: TextStyle(
-                          color: Colors.white, // เปลี่ยนสีตัวอักษร
+                          color: Colors.white, 
                           fontFamily:
-                              'YourFontFamily', // เปลี่ยนแบบอักษร (font family)
-                          fontSize: 16, // เปลี่ยนขนาดตัวอักษร
+                              'YourFontFamily', 
+                          fontSize: 16, 
                         ),
                       ),
                     ),
@@ -329,7 +329,7 @@ class _CreateAccountState extends State<CreateAccount> {
           ],
         ),
       );
-      return; // Return early if no image is picked
+      return; 
     }
 
     if (_password.text != _confirmPassword.text) {
