@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _image = File(pickedImage.path);
       });
 
-      // Upload the image and update the profile image URL in Firestore
+ 
       await _uploadImage();
     }
   }
@@ -59,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String downloadURL = await ref.getDownloadURL();
       print("Image uploaded. Download URL: $downloadURL");
 
-      // Update the user's document in Firestore with the profile image URL
+     
       await _firestore.collection('users').doc(_auth.currentUser!.uid).update({
         "profileImageUrl": downloadURL,
       });
@@ -98,11 +98,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  'assets/eatperson.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                  'assets/eatperson.png'), 
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.2), // แก้สีและความทึบตามต้องการ
-                BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+                Colors.white.withOpacity(0.2), 
+                BlendMode.dstATop, 
               ),
             ),
           ),
@@ -135,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: profileImageUrl.isEmpty
                                 ? Icon(Icons.person,
                                     size:
-                                        60) // Default icon when no image is available
+                                        60) 
                                 : null,
                           ),
                         ),
@@ -160,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                            Divider(), // เพิ่มเส้นแบ่งชั้นบรรทัด
+                            Divider(), 
                             Row(
                               children: [
                                 Icon(Icons.email, size: 24),
@@ -178,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                            Divider(), // เพิ่มเส้นแบ่งชั้นบรรทัด
+                            Divider(), 
                             Row(
                               children: [
                                 Icon(Icons.card_travel, size: 24),
@@ -228,7 +228,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             ),
                                           );
                                         } else {
-                                          // User is not registered as a partner, proceed with registration
+                                         
                                           await FirebaseFirestore.instance
                                               .collection('partners')
                                               .doc(user.uid)
@@ -248,9 +248,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.yellow
-                                        .shade700, // กำหนดสีพื้นหลังของปุ่ม
+                                        .shade700, 
                                     onPrimary:
-                                        Colors.white, // กำหนดสีของตัวอักษร
+                                        Colors.white, 
                                   ),
                                   child: Text(
                                     "Become a Partner",
@@ -270,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage(
-                                          'assets/id-card.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                                          'assets/id-card.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
