@@ -89,14 +89,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        filled: true, // ใส่สีพื้นหลัง
-                        fillColor: Colors.purple.shade400, // สีพื้นหลัง
+                        filled: true, 
+                        fillColor: Colors.purple.shade400, 
                       ),
                       style: TextStyle(
-                        color: Colors.white, // เปลี่ยนสีตัวอักษร
+                        color: Colors.white, 
                         fontFamily:
-                            'YourFontFamily', // เปลี่ยนแบบอักษร (font family)
-                        fontSize: 16, // เปลี่ยนขนาดตัวอักษร
+                            'YourFontFamily', 
+                        fontSize: 16, 
                       ),
                     ),
                   ),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: TextField(
                         controller: _password,
-                        obscureText: true, // ให้แสดงเป็น *** สำหรับรหัสผ่าน
+                        obscureText: true, 
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
                           hintText: "Password...",
@@ -117,14 +117,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          filled: true, // ใส่สีพื้นหลัง
-                          fillColor: Colors.purple.shade400, // สีพื้นหลัง
+                          filled: true, 
+                          fillColor: Colors.purple.shade400,
                         ),
                         style: TextStyle(
-                          color: Colors.white, // เปลี่ยนสีตัวอักษร
+                          color: Colors.white,
                           fontFamily:
-                              'YourFontFamily', // เปลี่ยนแบบอักษร (font family)
-                          fontSize: 16, // เปลี่ยนขนาดตัวอักษร
+                              'YourFontFamily', 
+                          fontSize: 16, 
                         ),
                       ),
                     ),
@@ -153,14 +153,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height / 25,
                   ),
-// ใช้งาน DecorationImage ใน Container เพื่อแสดงรูปภาพ
+
                   Container(
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                            'assets/deliver.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                            'assets/deliver.png'), 
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -192,7 +192,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 isLoading = false;
               });
 
-              // Show an alert dialog for login failure
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
