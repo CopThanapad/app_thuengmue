@@ -96,7 +96,6 @@ class ChatRoom extends StatelessWidget {
           .collection('chats')
           .add(messages);
 
-      // Add user information to the chatroom document
       await _firestore.collection('chatroom').doc(chatRoomId).set({
         'user1': _auth.currentUser!.email,
       }, SetOptions(merge: true));
@@ -114,10 +113,10 @@ class ChatRoom extends StatelessWidget {
           toolbarHeight: 60,
           leading: IconButton(
             icon: Icon(Icons.arrow_back,
-                color: Colors.yellow.shade300), // ไอคอนและสีของปุ่มย้อนกลับ
+                color: Colors.yellow.shade300), 
             iconSize: 30,
             onPressed: () {
-              Navigator.of(context).pop(); // เรียกฟังก์ชันเมื่อปุ่มถูกแตะ
+              Navigator.of(context).pop(); 
             },
           ),
           title: Row(
@@ -161,11 +160,11 @@ class ChatRoom extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  'assets/food-app.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                  'assets/food-app.png'), 
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.30), // แก้สีและความทึบตามต้องการ
-                BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+                Colors.white.withOpacity(0.30), 
+                BlendMode.dstATop, 
               ),
             ),
           ),
@@ -195,7 +194,7 @@ class ChatRoom extends StatelessWidget {
                                 size,
                                 map,
                                 userMap['profileImageUrl'],
-                                context); // ส่ง profileImageUrl มาในฟังก์ชั่น messages
+                                context); 
                           },
                         );
                       } else {
@@ -263,7 +262,7 @@ class ChatRoom extends StatelessWidget {
       radius: 20,
       child: profileImageUrl.isEmpty
           ? Icon(Icons.person,
-              size: 20) // Default icon when no image is available
+              size: 20) 
           : null,
     );
   }
