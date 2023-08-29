@@ -19,14 +19,14 @@ class _PartnerState extends State<Partner> {
   void addUserToFirestore() async {
     if (agreedToTerms) {
       try {
-        // Get the current user's ID
+     
         String parterId = FirebaseAuth.instance.currentUser!.uid;
 
-        // Create a reference to the user's document in Firestore
+        
         var userRef =
             FirebaseFirestore.instance.collection('users').doc(parterId);
 
-        // Create a map of the partner's data
+
         Map<String, dynamic> partnerData = {
           'name': nameController.text,
           'birthday': birthdayController.text,
@@ -34,24 +34,23 @@ class _PartnerState extends State<Partner> {
           'schoolof': schoolofController.text,
         };
 
-        // Get the user's document from Firestore
+       
         DocumentSnapshot userSnapshot = await userRef.get();
 
-        // Check if the user's document exists in Firestore
+        
         if (userSnapshot.exists) {
-          // Get the user's data
+          
           Map<String, dynamic> userData =
               userSnapshot.data() as Map<String, dynamic>;
 
-          // Add the user's email to the partner's data
+         
           partnerData['email'] = userData['email'];
         }
 
-        // Create a reference to the partner's document in Firestore
+     
         var partnerRef =
             FirebaseFirestore.instance.collection('partners').doc(parterId);
 
-        // Add the partner's data to Firestore
         await partnerRef.set(partnerData);
 
         showDialog(
@@ -244,9 +243,9 @@ class _PartnerState extends State<Partner> {
                     style: GoogleFonts.josefinSans(
                       // กำหนดฟอนต์ให้กับข้อความ
                       textStyle: TextStyle(
-                        color: Colors.purple.shade900, // สีของข้อความ
-                        fontSize: 16, // ขนาดของข้อความ
-                        fontWeight: FontWeight.w700, // น้ำหนักของข้อความ
+                        color: Colors.purple.shade900, 
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -254,14 +253,14 @@ class _PartnerState extends State<Partner> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Check if the user agreed to terms before proceeding
+                  
                   if (agreedToTerms) {
-                    // Check if any of the text fields are empty
+                    
                     if (nameController.text.isEmpty ||
                         birthdayController.text.isEmpty ||
                         yearinController.text.isEmpty ||
                         schoolofController.text.isEmpty) {
-                      // Show an AlertDialog if any of the fields are empty
+                    
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
@@ -295,11 +294,11 @@ class _PartnerState extends State<Partner> {
                         ),
                       );
                     } else {
-                      // All fields are filled, proceed with registration
+                    
                       addUserToFirestore();
                     }
                   } else {
-                    // Show the AlertDialog if the user has not agreed to terms
+                   
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
