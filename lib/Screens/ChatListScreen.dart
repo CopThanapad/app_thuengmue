@@ -37,8 +37,8 @@ class _ChatRoomListScreenState extends State<ChatRoomListScreen>
 
   String chatRoomId(String user1, String user2) {
     List<String> users = [user1, user2];
-    users.sort(); // เรียงลำดับ users ตามลำดับอักขระเพื่อให้เหมือนกันทุกครั้ง
-    return "${users[0]}${users[1]}"; // สร้าง chatRoomId จาก users
+    users.sort(); 
+    return "${users[0]}${users[1]}"; 
   }
 
   @override
@@ -87,11 +87,11 @@ class _ChatRoomListScreenState extends State<ChatRoomListScreen>
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  'assets/vet.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                  'assets/vet.png'), 
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.2), // แก้สีและความทึบตามต้องการ
-                BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+                Colors.white.withOpacity(0.2), 
+                BlendMode.dstATop, 
               ),
             ),
           ),
@@ -126,7 +126,6 @@ class _ChatRoomListScreenState extends State<ChatRoomListScreen>
                           title: Text(
                             userName,
                             style: GoogleFonts.josefinSans(
-                              // เปลี่ยนฟอนต์เป็น GoogleFonts.josefinSans
                               textStyle: TextStyle(
                                 color: Colors.yellow.shade800,
                                 fontSize: 18,
@@ -173,7 +172,6 @@ class _ChatRoomListScreenState extends State<ChatRoomListScreen>
                               title: Text(
                                 userNameBlog,
                                 style: GoogleFonts.josefinSans(
-                                  // เปลี่ยนฟอนต์เป็น GoogleFonts.josefinSans
                                   textStyle: TextStyle(
                                     color: Colors.purple.shade900,
                                     fontSize: 18,
@@ -212,7 +210,7 @@ class _ChatRoomListScreenState extends State<ChatRoomListScreen>
                                 },
                               ),
                             )
-                          : Container(); // Don't show anything if the condition is not met
+                          : Container(); 
                 },
               );
             },

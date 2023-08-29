@@ -37,18 +37,16 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      // online
       setStatus("Online");
     } else {
-      // offline
       setStatus("Offline");
     }
   }
 
   String chatRoomId(String user1, String user2) {
     List<String> users = [user1, user2];
-    users.sort(); // เรียงลำดับ users ตามลำดับอักขระเพื่อให้เหมือนกันทุกครั้ง
-    return "${users[0]}${users[1]}"; // สร้าง chatRoomId จาก users
+    users.sort(); 
+    return "${users[0]}${users[1]}"; 
   }
 
   Widget build(BuildContext context) {
@@ -90,7 +88,7 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                 User? user = FirebaseAuth.instance.currentUser;
 
                 if (user != null) {
-                  // Check if the current user is a partner
+               
                   DocumentSnapshot userSnapshot = await FirebaseFirestore
                       .instance
                       .collection('partners')
@@ -98,13 +96,13 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                       .get();
 
                   if (userSnapshot.exists) {
-                    // User is a partner, allow navigation to PostScreen
+                   
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PostScreen()),
                     );
                   } else {
-                    // User is not a partner, show a dialog or perform any action you prefer
+                 
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
@@ -146,11 +144,11 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  'assets/delivery-man.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                  'assets/delivery-man.png'), 
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.20), // แก้สีและความทึบตามต้องการ
-                BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+                Colors.white.withOpacity(0.20),
+                BlendMode.dstATop, 
               ),
             ),
           ),
@@ -181,7 +179,6 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                             color: Colors.white70,
                             child: GestureDetector(
                               onLongPress: () {
-                                // Show an alert dialog with the content of the article
                                 showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
@@ -379,7 +376,7 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                                                           onPressed: () {
                                                             Navigator.of(
                                                                     context)
-                                                                .pop(); // Close the dialog
+                                                                .pop(); 
                                                           },
                                                           child: Text("OK"),
                                                         ),
@@ -524,9 +521,9 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                                                         }
                                                       }
                                                     }
-                                                    // Rest of your code for adding the article to favorites
+                                                    
                                                   } else {
-                                                    // Display a message to the user indicating they cannot chat with themselves
+                                                    
                                                     showDialog(
                                                       context: context,
                                                       builder: (context) =>

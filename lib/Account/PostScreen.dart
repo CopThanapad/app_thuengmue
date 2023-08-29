@@ -12,7 +12,7 @@ class PostScreen extends StatefulWidget {
 class _PostScreenState extends State<PostScreen> {
   final TextEditingController _contentController = TextEditingController();
 
-  // Add this function to update profileImageUrl in blog_articles
+  
   void _updateProfileImageUrl(String userId, String newProfileImageUrl) {
     FirebaseFirestore.instance
         .collection('blog_articles')
@@ -21,7 +21,7 @@ class _PostScreenState extends State<PostScreen> {
         .then((querySnapshot) {
       querySnapshot.docs.forEach((articleDoc) {
         articleDoc.reference.update({
-          'profileImageUrl': newProfileImageUrl, // Update the correct field
+          'profileImageUrl': newProfileImageUrl, 
         });
       });
     });
@@ -78,7 +78,7 @@ class _PostScreenState extends State<PostScreen> {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context); // Close the dialog
+                    Navigator.pop(context); 
                   },
                   child: Text('OK'),
                 ),
@@ -109,7 +109,7 @@ class _PostScreenState extends State<PostScreen> {
         'cartypes': _selectedCarTypes,
         'timestamp': FieldValue.serverTimestamp(),
       });
-      Navigator.pop(context); // Go back to the BlogScreen
+      Navigator.pop(context); 
     }
   }
 
@@ -120,9 +120,9 @@ class _PostScreenState extends State<PostScreen> {
           toolbarHeight: 60,
           leading: IconButton(
             icon: Icon(Icons.arrow_back,
-                color: Colors.purple.shade900), // ไอคอนและสีของปุ่มย้อนกลับ
+                color: Colors.purple.shade900), 
             onPressed: () {
-              Navigator.of(context).pop(); // เรียกฟังก์ชันเมื่อปุ่มถูกแตะ
+              Navigator.of(context).pop(); 
             },
           ),
           title: RichText(
@@ -156,11 +156,11 @@ class _PostScreenState extends State<PostScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  'assets/burger.png'), // แทนที่ด้วยพาธของรูปภาพที่คุณใช้
+                  'assets/burger.png'), 
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.25), // แก้สีและความทึบตามต้องการ
-                BlendMode.dstATop, // แก้ BlendMode ตามต้องการ
+                Colors.white.withOpacity(0.25),
+                BlendMode.dstATop, 
               ),
             ),
           ),
