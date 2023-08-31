@@ -31,7 +31,7 @@ class _CreateAccountState extends State<CreateAccount> {
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-        isImagePicked = true; 
+        isImagePicked = true;
       });
     }
   }
@@ -52,7 +52,6 @@ class _CreateAccountState extends State<CreateAccount> {
       String downloadURL = await ref.getDownloadURL();
       print("Image uploaded. Download URL: $downloadURL");
 
-      
       await _firestore.collection('users').doc(_auth.currentUser!.uid).update({
         "profileImageUrl": downloadURL,
       });
@@ -69,12 +68,11 @@ class _CreateAccountState extends State<CreateAccount> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'assets/create-ac.png'), 
+            image: AssetImage('assets/create-ac.png'),
             fit: BoxFit.contain,
             colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.40), 
-              BlendMode.dstATop, 
+              Colors.white.withOpacity(0.40),
+              BlendMode.dstATop,
             ),
           ),
         ),
@@ -139,9 +137,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: CircleAvatar(
                         backgroundImage:
                             _image != null ? FileImage(_image!) : null,
-                        backgroundColor: _image == null
-                            ? Colors.purple.shade400
-                            : null, // 
+                        backgroundColor:
+                            _image == null ? Colors.purple.shade400 : null, //
                         radius: 50,
                         child: _image == null
                             ? Icon(Icons.person, size: 60)
@@ -170,7 +167,6 @@ class _CreateAccountState extends State<CreateAccount> {
                         padding: EdgeInsets.symmetric(horizontal: 40),
                         child: TextField(
                           controller: _name,
-                          
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.person),
                             hintText: "Name...",
@@ -178,14 +174,13 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            filled: true, 
-                            fillColor: Colors.purple.shade400, 
+                            filled: true,
+                            fillColor: Colors.purple.shade400,
                           ),
                           style: TextStyle(
-                            color: Colors.white, 
-                            fontFamily:
-                                'YourFontFamily',
-                            fontSize: 16, 
+                            color: Colors.white,
+                            fontFamily: 'YourFontFamily',
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -203,14 +198,13 @@ class _CreateAccountState extends State<CreateAccount> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          filled: true, 
-                          fillColor: Colors.purple.shade400, 
+                          filled: true,
+                          fillColor: Colors.purple.shade400,
                         ),
                         style: TextStyle(
-                          color: Colors.white, 
-                          fontFamily:
-                              'YourFontFamily', 
-                          fontSize: 16, 
+                          color: Colors.white,
+                          fontFamily: 'YourFontFamily',
+                          fontSize: 16,
                         ),
                       ),
                     ),
@@ -302,55 +296,18 @@ class _CreateAccountState extends State<CreateAccount> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(
-            "Image Require",
+            "Image Required",
             style: GoogleFonts.josefinSans(
-              textStyle: Theme.of(context).textTheme.displayLarge,
+              textStyle: Theme.of(context).textTheme.headline6,
               color: Colors.purple.shade900,
-              fontSize: 22,
               fontWeight: FontWeight.w500,
             ),
           ),
           content: Text(
-            "Please Select image for your profile",
+            "Please select an image for your profile.",
             style: GoogleFonts.josefinSans(
-              textStyle: Theme.of(context).textTheme.displayLarge,
+              textStyle: Theme.of(context).textTheme.bodyText2,
               color: Colors.purple.shade900,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('OK'),
-            ),
-          ],
-        ),
-      );
-      return; 
-    }
-
-    if (_password.text != _confirmPassword.text) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(
-            "Password do not MATCH",
-            style: GoogleFonts.josefinSans(
-              textStyle: Theme.of(context).textTheme.displayLarge,
-              color: Colors.purple.shade900,
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          content: Text(
-            "Please make sure the passwords match.",
-            style: GoogleFonts.josefinSans(
-              textStyle: Theme.of(context).textTheme.displayLarge,
-              color: Colors.purple.shade900,
-              fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -366,6 +323,40 @@ class _CreateAccountState extends State<CreateAccount> {
       );
       return;
     }
+
+    if (_password.text != _confirmPassword.text) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(
+            "Password Do Not Match",
+            style: GoogleFonts.josefinSans(
+              textStyle: Theme.of(context).textTheme.headline6,
+              color: Colors.purple.shade900,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          content: Text(
+            "Please make sure the passwords match.",
+            style: GoogleFonts.josefinSans(
+              textStyle: Theme.of(context).textTheme.bodyText2,
+              color: Colors.purple.shade900,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
     if (_name.text.isNotEmpty &&
         _email.text.isNotEmpty &&
         _password.text.isNotEmpty) {
@@ -395,18 +386,16 @@ class _CreateAccountState extends State<CreateAccount> {
             title: Text(
               "Failed to Create",
               style: GoogleFonts.josefinSans(
-                textStyle: Theme.of(context).textTheme.displayLarge,
+                textStyle: Theme.of(context).textTheme.headline6,
                 color: Colors.purple.shade900,
-                fontSize: 22,
                 fontWeight: FontWeight.w500,
               ),
             ),
             content: Text(
               "There are duplicate emails in the system.",
               style: GoogleFonts.josefinSans(
-                textStyle: Theme.of(context).textTheme.displayLarge,
+                textStyle: Theme.of(context).textTheme.bodyText2,
                 color: Colors.yellow.shade500,
-                fontSize: 22,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -424,39 +413,38 @@ class _CreateAccountState extends State<CreateAccount> {
           isLoading = false;
         });
       }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(
+            "Fill in Missing Information",
+            style: GoogleFonts.josefinSans(
+              textStyle: Theme.of(context).textTheme.headline6,
+              color: Colors.purple.shade900,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          content: Text(
+            "Please add all required information.",
+            style: GoogleFonts.josefinSans(
+              textStyle: Theme.of(context).textTheme.bodyText2,
+              color: Colors.yellow.shade500,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+      return;
     }
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(
-          "Fill in the missing information",
-          style: GoogleFonts.josefinSans(
-            textStyle: Theme.of(context).textTheme.displayLarge,
-            color: Colors.purple.shade900,
-            fontSize: 22,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        content: Text(
-          "Please add all information.",
-          style: GoogleFonts.josefinSans(
-            textStyle: Theme.of(context).textTheme.displayLarge,
-            color: Colors.yellow.shade500,
-            fontSize: 22,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('OK'),
-          ),
-        ],
-      ),
-    );
-    return;
   }
 
   Widget customButton(Size size) {
