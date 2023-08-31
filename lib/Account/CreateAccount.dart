@@ -395,7 +395,7 @@ class _CreateAccountState extends State<CreateAccount> {
               "There are duplicate emails in the system.",
               style: GoogleFonts.josefinSans(
                 textStyle: Theme.of(context).textTheme.bodyText2,
-                color: Colors.yellow.shade500,
+                color: Colors.purple.shade900,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -429,7 +429,7 @@ class _CreateAccountState extends State<CreateAccount> {
             "Please add all required information.",
             style: GoogleFonts.josefinSans(
               textStyle: Theme.of(context).textTheme.bodyText2,
-              color: Colors.yellow.shade500,
+              color: Colors.purple.shade900,
               fontWeight: FontWeight.w500,
             ),
           ),
