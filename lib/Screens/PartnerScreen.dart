@@ -56,7 +56,14 @@ class _PartnerState extends State<Partner> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('บันทึกข้อมูลสำเร็จ'),
+            title: Text(
+            "Save data successfully",
+            style: GoogleFonts.josefinSans(
+              textStyle: Theme.of(context).textTheme.headline6,
+              color: Colors.purple.shade900,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
             actions: [
               ElevatedButton(
                 onPressed: () {
@@ -72,7 +79,7 @@ class _PartnerState extends State<Partner> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('เกิดข้อผิดพลาดในการบันทึกข้อมูล'),
+            title: Text('No save data'),
             actions: [
               ElevatedButton(
                 onPressed: () {
@@ -88,7 +95,7 @@ class _PartnerState extends State<Partner> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('กรุณายอมรับข้อตกลง'),
+          title: Text('Please accept'),
           actions: [
             ElevatedButton(
               onPressed: () {
