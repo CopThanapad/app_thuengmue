@@ -200,7 +200,7 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                                         textStyle: Theme.of(context)
                                             .textTheme
                                             .displayLarge,
-                                        color: Colors.yellow.shade500,
+                                        color: Colors.purple.shade900,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -500,9 +500,6 @@ class _BlogScreenState extends State<BlogScreen> with WidgetsBindingObserver {
                                                             'blog_articlesid':
                                                                 selectedArticleSnapshot
                                                                     .id,
-                                                            'title':
-                                                                selectedArticleData[
-                                                                    'title'],
                                                             'content':
                                                                 selectedArticleData[
                                                                     'content'],
