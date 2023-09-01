@@ -6,3 +6,4 @@ app_thuengmue(แอปถึงมือ)
 นายธนภัทร บุญรุ่ง
 นายศุภวิชญ์ มีศักดิ์
 นักศึกษาหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ ชั้น ปีที่ 3
+The "app_thuengmue" (Reach Me App) was developed to help alleviate congestion in university cafeterias and enhance convenience for growing numbers of Walailak University students. The app enables students to collectively assist each other by facilitating the pickup of various items like water, rice, snacks, and parcels located at the designated point in Chaloem Phra Kiat Building for those interested or unable to come in person. Created by Mr. Thanapad Boonrung and Mr. Supawit Meesak, third-year students majoring in Computer Engineering and Artificial Intelligence, Faculty of Engineering, Walailak University.
